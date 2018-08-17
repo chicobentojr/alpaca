@@ -27,8 +27,8 @@ def setup(endpoint):
     return '', 204, {'Content-Type': 'application/json'}
 
 
-@app.route('/<path:endpoint>')
-def spit(endpoint, methods=['GET', 'POST']):
+@app.route('/<path:endpoint>', methods=['GET', 'POST'])
+def spit(endpoint):
     return endpoints.get(
         (request.method, endpoint),
         ('', 404, {'Content-Type': 'application/json'})
